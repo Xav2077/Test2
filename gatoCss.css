@@ -1,0 +1,115 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    background: linear-gradient(90deg ,#4fffd9, white, #4fffd9);
+    text-transform: uppercase;
+    font-size: 0.8em;
+    font-family: sans-serif;
+    text-align: center;
+}
+
+section{
+    height: 100vh;
+    width: 100%;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+
+label{
+    width:150px;
+    height:40px;
+    background-color: greenyellow;
+    border: 1px solid black;
+    cursor: pointer;
+    border-radius: 40px;
+    padding-top: 10px;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+input{
+    display: none;
+}
+
+div{
+    width: 200px;
+    height: 200px;
+    background-color: whitesmoke;
+    transition: left 2s;
+    border: 1px solid black;
+}
+
+div > p{
+    display: inline-block;
+}
+
+span{
+    display: none;
+    position: absolute;
+    left: 200px;
+    transform: scale(2);
+    animation: michi;
+    animation-duration: 10s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes michi{
+    0%{
+        transform: "";
+    }
+
+    20%{
+        transform: rotate(60deg);
+    }
+
+    40%{
+        transform: rotate(-60deg);        
+    }
+
+    60%{
+        transform: rotate(60deg);        
+    }
+
+    80%{
+        transform: rotate(-60deg);        
+    }
+
+    100%{
+        transform: translateX(600px);
+    }
+}
+
+span::after{
+    content: "Michi Wow!";
+    position: absolute;
+    left: 70px;
+    top: -50px;
+    background-color: white;
+    padding: 10px;
+    border-radius: 50px 40px 50px 5px;
+    width: 60px;
+    z-index: 999;
+}
+
+#chk1:checked ~ label{
+    background-color: red;
+    color:white;
+}
+
+#chk1:checked ~ div{
+    transform: scale(1.5) translateY(30px);
+}
+
+#chk1:checked ~ span{
+    display: block;
+}
